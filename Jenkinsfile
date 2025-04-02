@@ -11,7 +11,7 @@ pipeline {
        
 	        stage('Junit5 Test') { 
                  steps {
-	              // echo 'test' 
+	               echo 'test' 
 		// bat 'mvn test'
                   }
             }
