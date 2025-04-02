@@ -4,8 +4,8 @@ pipeline {
     stages {
             stage('Compile and Clean') { 
                 steps {
-                       echo 'compile' 
-			bat '%MAVEN_HOME%\\bin\\mvn clean'
+                       //echo 'compile' 
+			bat 'mvn clean'
 			//bat 'mvn compile'
                       }
             }
@@ -33,8 +33,8 @@ pipeline {
    			}
         stage('Maven Build'){ 
             steps {
-               // bat'mvn clean install'
-		    echo 'build'
+                bat'mvn clean install'
+		 //   echo 'build'
                   }
             }
         stage('Build Docker image'){
