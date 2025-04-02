@@ -4,8 +4,8 @@ pipeline {
     stages {
             stage('Compile and Clean') { 
                 steps {
-                       //echo 'compile' 
-			bat 'mvn compile'
+                       echo 'compile' 
+			//bat 'mvn compile'
                       }
             }
        
