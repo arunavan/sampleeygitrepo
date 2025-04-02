@@ -4,13 +4,15 @@ pipeline {
     stages {
             stage('Compile and Clean') { 
                 steps {
-                       echo 'compile' // bat'mvn compile'
+                       //echo 'compile' 
+			bat 'maven compile'
                       }
             }
        
 	        stage('Junit5 Test') { 
                  steps {
-	               echo 'test' // bat'mvn test'
+	              // echo 'test' 
+			 bat 'maven test'
                   }
             }
 
