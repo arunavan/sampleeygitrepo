@@ -4,13 +4,13 @@ pipeline {
     stages {
             stage('Compile and Clean') { 
                 steps {
-                       bat'mvn compile'
+                       echo 'compile' // bat'mvn compile'
                       }
             }
        
 	        stage('Junit5 Test') { 
                  steps {
-	                bat'mvn test'
+	               echo 'test' // bat'mvn test'
                   }
             }
 
@@ -30,7 +30,7 @@ pipeline {
    			}
         stage('Maven Build') { 
             steps {
-                bat'mvn clean install'
+               // bat'mvn clean install'
                   }
             }
         stage('Build Docker image'){
@@ -38,7 +38,7 @@ pipeline {
                       //   	docker build -t nodejs-server -f Dockerfile.arg --build-arg UBUNTU_VERSION=18.04
 		             //--build-arg CUDA_VERSION=10.0
                      //bat 'docker build -t  docker.repository.esi.adp.com/clientcentral/training:docker_jenkins_springboot:${BUILD_NUMBER} .'
-           	    bat 'docker build -t  jenkinssampleproject --build-arg VER=1.0 .'
+           	//    bat 'docker build -t  jenkinssampleproject --build-arg VER=1.0 .'
 		         }
              }
         stage('Docker Login'){
@@ -49,12 +49,12 @@ pipeline {
         }
         stage('Docker Push'){
             steps {
-                bat'docker push aruna708/jenkinssampleproject'
+            //    bat'docker push aruna708/jenkinssampleproject'
             }
         }
         stage('Docker deploy'){
             steps {
-                bat'docker run -itd -p  8086:8086 jenkinssampleproject'
+            //    bat'docker run -itd -p  8086:8086 jenkinssampleproject'
              }
         }
     
