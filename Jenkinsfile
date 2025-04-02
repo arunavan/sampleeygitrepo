@@ -5,6 +5,7 @@ pipeline {
             stage('Compile and Clean') { 
                 steps {
                        echo 'compile' 
+			bat '%MAVEN_HOME%\\bin\\mvn clean'
 			//bat 'mvn compile'
                       }
             }
