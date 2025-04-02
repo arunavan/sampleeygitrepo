@@ -28,9 +28,10 @@ pipeline {
 			echo 'Sonar Code Scanning '
 				}	
    			}
-        stage('Maven Build') { 
+        stage('Maven Build'){ 
             steps {
                // bat'mvn clean install'
+		    echo 'build'
                   }
             }
         stage('Build Docker image'){
@@ -39,6 +40,7 @@ pipeline {
 		             //--build-arg CUDA_VERSION=10.0
                      //bat 'docker build -t  docker.repository.esi.adp.com/clientcentral/training:docker_jenkins_springboot:${BUILD_NUMBER} .'
            	//    bat 'docker build -t  jenkinssampleproject --build-arg VER=1.0 .'
+		   echo 'build image'
 		         }
              }
         stage('Docker Login'){
@@ -50,11 +52,13 @@ pipeline {
         stage('Docker Push'){
             steps {
             //    bat'docker push aruna708/jenkinssampleproject'
+		    echo' docker push'
             }
         }
         stage('Docker deploy'){
             steps {
             //    bat'docker run -itd -p  8086:8086 jenkinssampleproject'
+		    echo'deploy'
              }
         }
     
